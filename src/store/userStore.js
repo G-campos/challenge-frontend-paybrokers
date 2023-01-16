@@ -3,14 +3,14 @@ import { createSlice, configureStore } from '@reduxjs/toolkit'
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    value: 0
+    name: ''
   },
   reducers: {
     incremented: state => {
-      state.value += 1
+      state.name += 1
     },
     decremented: state => {
-      state.value -= 1
+      state.name -= 1
     }
   }
 })
