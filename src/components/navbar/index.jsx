@@ -6,12 +6,16 @@ import {
   NavDropdown
 } from "react-bootstrap";
 
+import {
+  redirect
+} from "react-router-dom";
+
 function NavBar() {
   const userName = "Campos"
   return (
     <Navbar bg="" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href={'/home'}>
           <img
             alt="Paybrokers Icon"
             src="https://www.paybrokers.com.br/uploads/Grupo%2037.png"
@@ -23,8 +27,8 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link className="">Home</Nav.Link>
-            <Nav.Link className="">Produtos</Nav.Link>
+            <Nav.Link className="" href={'/home'}>Home</Nav.Link>
+            <Nav.Link className="" href={'/products'}>Produtos</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Toggle />
@@ -51,9 +55,9 @@ function NavBar() {
           <Navbar.Toggle />
           <Navbar.Brand className="">
             <i
-              className="mdi mdi-account text-info"
+              className="mdi mdi-account"
               aria-hidden="true"
-              style={{fontSize:30+'px'}}
+              style={{ fontSize:30+'px', color: '#5CC4BD'}}
             />
           </Navbar.Brand>
         </Navbar.Collapse>
