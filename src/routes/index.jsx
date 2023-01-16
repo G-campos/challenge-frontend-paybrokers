@@ -1,15 +1,15 @@
-import AuthPage from "../pages/auth";
-
 import { createBrowserRouter} from "react-router-dom";
 
-const router = createBrowserRouter([
+import AuthPage from "../pages/auth";
+import HomePage from "../pages/home";
+
+
+const routes = createBrowserRouter([
   {
     path: "/",
-    element: { AuthPage },
-    children: {
-
-    }
+    element: <AuthPage />,
   },
+
 ]);
 
-export default router
+export default routes
