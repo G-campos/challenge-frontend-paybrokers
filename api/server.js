@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   logger.info("Request /")
 })
 
-app.listen(3001, () => {
+app.listen(3000, () => {
   logger.info("Start server")
-  logger.info("Listening on 3001")
+  logger.info("Listening on 3000")
 })
