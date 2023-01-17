@@ -1,4 +1,14 @@
 import {
+  Link,
+  useNavigate
+} from "react-router-dom";
+import {
+  useState
+} from "react";
+
+import http from "../../services/axios";
+
+import {
   Card,
   Button,
   Form,
@@ -7,8 +17,6 @@ import {
   Container,
   InputGroup
 } from "react-bootstrap";
-import {Link, useNavigate} from "react-router-dom";
-import {useState} from "react";
 
 function FormLogin() {
   let navigate = useNavigate();
@@ -24,6 +32,8 @@ function FormLogin() {
   const [eye, seteye] = useState(true);
   const [password, setpassword] = useState("password");
   const [type, settype] = useState(false);
+
+  const [user, setUser] = useState();
 
   const inputEvent = (event) => {
     const name = event.target.name;
@@ -49,7 +59,7 @@ function FormLogin() {
     }
   }
 
-  const authUser = (e) => {
+  const authUser = async (e) => {
     console.log("entrou no authUser")
     e.preventDefault();
     setWarnEmail(false);
@@ -62,12 +72,26 @@ function FormLogin() {
       setWarnPassword(true);
     } else {
       console.log("else")
-      navigate('/home')
+      await getAuthUser()
     }
+  }
 
-  };
-
-
+  const getAuthUser = async () => {
+    const payload = {
+      email: inputText.email,
+      password: inputText.password
+    }
+    await http.post("/login", payload)
+      .then((res) => {
+        console.log('resp.data => ', res.data)
+        sessionStorage.setItem('USER', res.data)
+        navigate('/home')
+      })
+      .catch((err) => {
+        console.log(err)
+        alert("ops! ocorreu um erro, " + err);
+      });
+  }
 
   return (
     <Card className="mb-3" style={{width: '20rem'}}>
