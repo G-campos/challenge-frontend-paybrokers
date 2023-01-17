@@ -7,10 +7,12 @@ import {
   Container,
   InputGroup
 } from "react-bootstrap";
-import {Link, redirect} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 
 function FormLogin() {
+  let navigate = useNavigate();
+
   const [inputText, setinputText] = useState({
     email: "",
     password: ""
@@ -60,11 +62,12 @@ function FormLogin() {
       setWarnPassword(true);
     } else {
       console.log("else")
-      redirect('/home')
-      //alert("form submitted");
+      navigate('/home')
     }
 
   };
+
+
 
   return (
     <Card className="mb-3" style={{width: '20rem'}}>
