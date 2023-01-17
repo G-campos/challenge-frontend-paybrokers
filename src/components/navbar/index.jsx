@@ -9,11 +9,14 @@ import {
 import {
   redirect
 } from "react-router-dom";
+import {style} from "./style.js";
 
 function NavBar() {
   const userName = "Campos"
   return (
-    <Navbar bg="" expand="lg">
+    <Navbar
+      expand="lg"
+    >
       <Container>
         <Navbar.Brand href={'/home'}>
           <img
@@ -46,13 +49,12 @@ function NavBar() {
                 <i
                   className="mdi mdi-location-exit text-danger"
                   aria-hidden="true"
-                  style={{fontSize:20+'px'}}
+                  style={ style.iconStyle }
                 />{' '}
                 Sair
               </NavDropdown.Item>
             </NavDropdown>
           </Navbar.Brand>
-          <Navbar.Toggle />
           <Navbar.Brand className="">
             <i
               className="mdi mdi-account"
@@ -60,6 +62,7 @@ function NavBar() {
               style={{ fontSize:30+'px', color: '#5CC4BD'}}
             />
           </Navbar.Brand>
+          <Navbar.Toggle />
         </Navbar.Collapse>
       </Container>
     </Navbar>
