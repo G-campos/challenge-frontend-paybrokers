@@ -1,8 +1,9 @@
-import * as React from "react";
+import {useEffect} from "react";
 import {
   BrowserRouter,
   Route,
   Routes,
+  useNavigate,
 } from "react-router-dom";
 
 import AuthPage from "./pages/auth";
@@ -22,6 +23,7 @@ function App() {
           path="products"
           element={<ProductsPage/>}
         />
+        <Route path="*" index element={<Page404 />} />
       </Routes>
     </BrowserRouter>
   )
@@ -29,7 +31,7 @@ function App() {
 
 function Page404() {
   return <div>
-    <h2>404 Page not found etc</h2>
+    <h2>404 Page not found</h2>
   </div>;
 }
 
