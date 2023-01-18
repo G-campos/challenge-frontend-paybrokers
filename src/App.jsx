@@ -3,7 +3,6 @@ import {
   BrowserRouter,
   Route,
   Routes,
-  useNavigate,
 } from "react-router-dom";
 
 import AuthPage from "./pages/auth";
