@@ -84,7 +84,7 @@ function FormLogin() {
     await http.post("/login", payload)
       .then((res) => {
         console.log('resp.data => ', res.data)
-        sessionStorage.setItem('USER', res.data)
+        sessionStorage.setItem('USER', JSON.stringify(res.data))
         navigate('/home')
       })
       .catch((err) => {
