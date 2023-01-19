@@ -3,16 +3,34 @@ import {
   Container, Image,
   Nav,
   Navbar,
-  NavDropdown
+  NavDropdown,
 } from "react-bootstrap";
 
 import {
-  redirect
+  useNavigate,
+  Navigate,
+  Link
 } from "react-router-dom";
 import {style} from "./style.js";
 
 function NavBar() {
-  const userName = "Campos"
+  let navigate = useNavigate();
+
+  let user = {}
+  user = JSON.parse(sessionStorage.getItem('USER'))
+
+  const logout = () => {
+    sessionStorage.setItem('USER', '')
+    navigate('/')
+  }
+
+  const goToProfile = () => {
+    navigate('/profile')
+  }
+  const goToSettings = () => {
+    navigate('/settings')
+  }
+
   return (
     <Navbar
       expand="lg"
@@ -37,15 +55,15 @@ function NavBar() {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Brand className="">
-            <NavDropdown title={ userName } id="basic-nav-dropdown">
-              <NavDropdown.Item>
+            <NavDropdown title={ user.name } id="basic-nav-dropdown">
+              <NavDropdown.Item onClick={goToProfile}>
                 Perfil
               </NavDropdown.Item>
-              <NavDropdown.Item>
+              <NavDropdown.Item onClick={goToSettings}>
                 Configurações
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item>
+              <NavDropdown.Item onClick={logout}>
                 <i
                   className="mdi mdi-location-exit text-danger"
                   aria-hidden="true"
