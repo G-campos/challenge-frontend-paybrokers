@@ -5,85 +5,37 @@ import {
   Tooltip
 } from "react-bootstrap";
 
-function DinamicTable() {
-  const tableHeader = ['ID', 'NOME', 'EMPRESA', 'TIPO PEDIDO', 'SETOR', 'PERMISSÃO', 'AÇÃO']
-  const tableBody = [
-    {
-      id: 1,
-      name: "Fulana de Tal",
-      company: "Paybrokers",
-      requestType: "Demanda Interna",
-      sector: "Comercial",
-      permission: "Administrador"
-    },
-    {
-      id: 2,
-      name: "Ciclano de Tal",
-      company: "Whatever",
-      requestType: "Suporte",
-      sector: "Financeiro",
-      permission: "Operacional"
-    },
-    {
-      id: 3,
-      name: "Fulana de Tal",
-      company: "Paybrokers",
-      requestType: "Demanda Interna",
-      sector: "Comercial",
-      permission: "Administrador"
-    },
-    {
-      id: 4,
-      name: "John Doe",
-      company: "AnyBet",
-      requestType: "Faturamento",
-      sector: "Financeiro",
-      permission: "Administrador"
-    },
-    {
-      id: 5,
-      name: "Fulana de Tal",
-      company: "Paybrokers",
-      requestType: "Demanda Interna",
-      sector: "Comercial",
-      permission: "Administrador"
-    },
-    {
-      id: 6,
-      name: "Ciclano de Tal",
-      company: "Whatever",
-      requestType: "Suporte",
-      sector: "Financeiro",
-      permission: "Operacional"
-    },
-    {
-      id: 7,
-      name: "John Doe",
-      company: "AnyBet",
-      requestType: "Faturamento",
-      sector: "Financeiro",
-      permission: "Administrador"
-    },
-  ]
+function handlerBody(obj, objName) {
+  let arryTDList = []
+  for (const property in obj) {
+    arryTDList.push(obj[property])
+  }
+  return (
+    arryTDList.map(
+      (value, index) => (
+        <th key={index}>{ value }</th>
+      )
+    )
+  )
+}
+
+function DinamicTable(props) {
   return (
     <Table responsive className="pt-3">
       <thead>
       <tr>
-        {tableHeader.map((value, index) => (
-          <th key={index}>{ value }</th>
-        ))}
+        { props.header.map(
+          (value, index) => (
+            <th key={index}>{ value }</th>
+          )
+        )}
       </tr>
       </thead>
       <tbody>
-      {tableBody.map((order) => (
+      { props.body.map((item) => (
         <tr>
-          <td>{ order.id }</td>
-          <td>{ order.name }</td>
-          <td>{ order.company }</td>
-          <td>{ order.requestType }</td>
-          <td>{ order.sector }</td>
-          <td>{ order.permission }</td>
-          <td>
+          { handlerBody(item, 'item') }
+          <td key="">
             <OverlayTrigger
               placement="left"
               overlay={

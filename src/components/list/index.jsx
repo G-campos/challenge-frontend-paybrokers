@@ -2,29 +2,6 @@ import {
   ListGroup,
 } from "react-bootstrap";
 
-const movimentation = [
-  {
-    type: 'recebido',
-    description: 'Pgto de Clientes',
-    money: '5000,00'
-  },
-  {
-    type: 'pago',
-    description: 'Hospedagem',
-    money: '700,00'
-  },
-  {
-    type: 'agendado',
-    description: 'Aluguel',
-    money: '1000,00'
-  },
-  {
-    type: 'pago',
-    description: 'Luz',
-    money: '380,00'
-  }
-]
-
 const operationType = {
   recebido: {
     icon: 'mdi mdi-arrow-down-bold-hexagon-outline',
@@ -40,7 +17,7 @@ const operationType = {
   },
 }
 
-function DinamicList() {
+function DinamicList(props) {
   return (
     <ListGroup variant="flush">
       <ListGroup.Item
@@ -71,7 +48,7 @@ function DinamicList() {
           <span>agendado</span>
         </div>
       </ListGroup.Item>
-      {movimentation.map((operation) => (
+      {props.movimentation.map((operation) => (
         <ListGroup.Item
           className="d-flex justify-content-between align-items-start"
         >
