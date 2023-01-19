@@ -1,5 +1,10 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit'
 
+/*
+Exemple
+*/
+
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
