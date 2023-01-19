@@ -10,6 +10,88 @@ import DinamicTable from "../dinamicTable";
 import DinamicList from "../list";
 
 function Dashboard() {
+  const tableHeader = ['ID', 'NOME', 'EMPRESA', 'TIPO PEDIDO', 'SETOR', 'PERMISSÃO', 'AÇÃO']
+  const tableBody = [
+    {
+      id: 1,
+      name: "Fulana de Tal",
+      company: "Paybrokers",
+      requestType: "Demanda Interna",
+      sector: "Comercial",
+      permission: "Administrador"
+    },
+    {
+      id: 2,
+      name: "Ciclano de Tal",
+      company: "Whatever",
+      requestType: "Suporte",
+      sector: "Financeiro",
+      permission: "Operacional"
+    },
+    {
+      id: 3,
+      name: "Fulana de Tal",
+      company: "Paybrokers",
+      requestType: "Demanda Interna",
+      sector: "Comercial",
+      permission: "Administrador"
+    },
+    {
+      id: 4,
+      name: "John Doe",
+      company: "AnyBet",
+      requestType: "Faturamento",
+      sector: "Financeiro",
+      permission: "Administrador"
+    },
+    {
+      id: 5,
+      name: "Fulana de Tal",
+      company: "Paybrokers",
+      requestType: "Demanda Interna",
+      sector: "Comercial",
+      permission: "Administrador"
+    },
+    {
+      id: 6,
+      name: "Ciclano de Tal",
+      company: "Whatever",
+      requestType: "Suporte",
+      sector: "Financeiro",
+      permission: "Operacional"
+    },
+    {
+      id: 7,
+      name: "John Doe",
+      company: "AnyBet",
+      requestType: "Faturamento",
+      sector: "Financeiro",
+      permission: "Administrador"
+    },
+  ]
+  const movimentation = [
+    {
+      type: 'recebido',
+      description: 'Pgto de Clientes',
+      money: '5000,00'
+    },
+    {
+      type: 'pago',
+      description: 'Hospedagem',
+      money: '700,00'
+    },
+    {
+      type: 'agendado',
+      description: 'Aluguel',
+      money: '1000,00'
+    },
+    {
+      type: 'pago',
+      description: 'Luz',
+      money: '380,00'
+    }
+  ]
+
   return (
     <Container className="">
       <Row>
@@ -29,7 +111,9 @@ function Dashboard() {
               Últimas movimentações
             </Card.Header>
             <Card.Body>
-              <DinamicList />
+              <DinamicList
+                movimentation={movimentation}
+              />
             </Card.Body>
           </Card>
         </Col>
@@ -52,7 +136,10 @@ function Dashboard() {
               Tickets em aberto
             </Card.Header>
             <Card.Body>
-              <DinamicTable />
+              <DinamicTable
+                header={tableHeader}
+                body={tableBody}
+              />
             </Card.Body>
           </Card>
         </Col>
