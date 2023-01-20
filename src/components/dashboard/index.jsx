@@ -1,9 +1,10 @@
 import {
   Card,
   Col,
-  Container, Row
-
+  Container,
+  Row
 } from "react-bootstrap";
+import { style } from "./style.js";
 
 import { GraphDoughnut, GraphLine,} from "../graph";
 import DinamicTable from "../dinamicTable";
@@ -16,7 +17,7 @@ function Dashboard(props) {
     <Container className="">
       <Row>
         <Col>
-          <Card className=""  style={{ width:'16rem'}}>
+          <Card className=""  style={style.cardProducts}>
             <Card.Header>
               Principais produtos vendidos
             </Card.Header>
@@ -26,7 +27,7 @@ function Dashboard(props) {
           </Card>
         </Col>
         <Col>
-          <Card className="" style={{ width:'20rem'}}>
+          <Card className="" style={style.cardMovimentations}>
             <Card.Header>
               Últimas movimentações
             </Card.Header>
@@ -38,7 +39,7 @@ function Dashboard(props) {
           </Card>
         </Col>
         <Col>
-          <Card className=""  style={{ width:'30rem'}}>
+          <Card className=""  style={style.cardGraphSales}>
             <Card.Header>
               Fluxo de vendas
             </Card.Header>
