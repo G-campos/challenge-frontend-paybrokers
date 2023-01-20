@@ -13,11 +13,8 @@ import {
 } from "react-router-dom";
 import {style} from "./style.js";
 
-function NavBar() {
+function NavBar(props) {
   let navigate = useNavigate();
-
-  let user = {}
-  user = JSON.parse(sessionStorage.getItem('USER'))
 
   const logout = () => {
     sessionStorage.setItem('USER', '')
@@ -55,7 +52,7 @@ function NavBar() {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Brand className="">
-            <NavDropdown title={ user.name } id="basic-nav-dropdown">
+            <NavDropdown title={ props.user.name } id="basic-nav-dropdown">
               <NavDropdown.Item onClick={goToProfile}>
                 Perfil
               </NavDropdown.Item>
