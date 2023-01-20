@@ -33,7 +33,7 @@ export const dataPie = {
   datasets: [
     {
       label: '# of Votes',
-      data: [12, 19, 3],
+      data: [12, 19, 20],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -107,11 +107,11 @@ export const dataLine = {
   ],
 };
 
-export function GraphDoughnut() {
+export function GraphDoughnut(props) {
   return  <Doughnut data={dataPie} />
 }
 
-export function GraphBarChat(){
+export function GraphBarChat(props){
   return <Bar
     options={optionsBar}
     data={dataBarChart}
@@ -122,7 +122,7 @@ export function GraphBarChat(){
   />
 }
 
-export function GraphLine() {
+export function GraphLine(props) {
   return <Line
     options={optionsLine}
     data={dataLine}
