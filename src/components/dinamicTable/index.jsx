@@ -39,10 +39,10 @@ function DinamicTable(props) {
             <OverlayTrigger
               placement="left"
               overlay={
-                <Tooltip id="tooltip-disabled">Atender</Tooltip>
+                <Tooltip id="tooltip-disabled">{props.actionOneText}</Tooltip>
               }
             >
-              <Button variant="outline-light">
+              <Button variant="outline-light" onClick={() => props.actionOne(item.id)}>
                 <i
                   className="mdi mdi-tag-check text-secondary"
                   aria-hidden="true"
@@ -53,10 +53,10 @@ function DinamicTable(props) {
             <OverlayTrigger
               placement="right"
               overlay={
-                <Tooltip id="tooltip-disabled">Indeferir</Tooltip>
+                <Tooltip id="tooltip-disabled">{props.actionTwoText}</Tooltip>
               }
             >
-              <Button variant="outline-light">
+              <Button variant="outline-light" onClick={() => props.actionTwo(item.id)}>
                 <i
                   className="mdi mdi-tag-remove text-danger"
                   aria-hidden="true"
